@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#061e63">
+<title>AlzDevz • Source Code &amp; Deploy HTML tools</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+</head>
+<body>
+
+<div class="bg" aria-hidden="true">
+  <div class="grid"></div>
+  <div class="aurora a1"></div><div class="aurora a2"></div><div class="aurora a3"></div>
+  <div class="beam"></div>
+  <div class="stars" id="stars"></div>
+  <div class="bub b1"></div><div class="bub b2"></div><div class="bub b3"></div><div class="bub b4"></div><div class="bub b5"></div>
+</div>
+
+<header class="top">
+  <div class="brand"><div class="lg">&lt;/&gt;</div><div><b>Source Code &amp; Deploy HTML tools</b><small>Source Web • HTML Deploy</small></div></div>
+  <div class="right">
+    <span class="pill glass"><i class="dot"></i>Proxy aktif</span>
+    <button class="btn" id="lite" style="padding:7px 13px;font-size:12px">Mode Ringan</button>
+    <span class="pill glass">by AlzDevz</span>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero glass">
+    <span class="eyebrow">AlzDevz Toolkit</span>
+    <h1>Source Code &amp; Deploy HTML tools</h1>
+    <p class="lead">Grab source code website dari link mana aja, terus deploy HTML kamu ke Vercel. Simple, no login.</p>
+    <div class="chips"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>ZIP</span><span>Preview</span><span>Vercel</span></div>
+  </section>
+
+  <nav class="tabs glass" id="tabs" data-i="0">
+    <i class="ind"></i>
+    <button class="on" data-t="t1" data-i="0">Source Web</button>
+    <button data-t="t2" data-i="1">HTML Deploy</button>
+  </nav>
+
+  <!-- ===== SOURCE WEB ===== -->
+  <section id="t1">
+    <div class="card glass">
+      <h2>Grab website source</h2>
+      <p class="sub">Paste link website, nanti HTML, CSS, dan JS-nya langsung ke-fetch.</p>
+      <div class="row"><input id="url" placeholder="https://contoh.com" autocapitalize="off" autocomplete="off" inputmode="url"><button class="btn p" id="go">Generate</button></div>
+      <div class="bar hide" id="bar"><i id="fill"></i></div>
+      <div class="msg" id="msg"></div>
+    </div>
+
+    <div class="card glass hide" id="res">
+      <div class="head"><h2 id="fc">Files</h2>
+        <div class="acts"><button class="btn" id="copy">Copy</button><button class="btn" id="save">Save</button><button class="btn" id="prev">Preview</button></div>
+      </div>
+      <div class="files" id="files"></div>
+      <pre id="code"></pre>
+      <div class="row"><input id="zn" placeholder="Nama ZIP (opsional)"><button class="btn p" id="zip">Download ZIP</button></div>
+    </div>
+
+    <div class="card glass"><div class="head"><h2>History</h2><button class="btn" id="clr">Hapus</button></div><div id="hist"></div></div>
+  </section>
+
+  <!-- ===== HTML DEPLOY (Vercel) ===== -->
+  <section id="t2" class="hide">
+    <div class="card glass">
+      <h2>Deploy HTML ke Vercel</h2>
+      <p class="sub">Upload file HTML atau ZIP, isi project name, terus klik Deploy. No login, no token.</p>
+      <div class="row"><input id="proj" placeholder="project-name" autocomplete="off" autocapitalize="off" spellcheck="false"></div>
+      <div class="sub" id="pinfo">Link: <b>project-name.vercel.app</b></div>
+      <div class="drop" id="drop" tabindex="0"><b id="dtitle">Upload HTML atau ZIP</b><span class="sub" id="dsub">Click atau drag file ke sini, ZIP max 3 MB</span></div>
+      <input type="file" id="file" accept=".html,.htm,.zip" hidden>
+      <details class="alt"><summary>Atau paste kode HTML langsung</summary><textarea id="html" placeholder="&lt;!DOCTYPE html&gt;…"></textarea></details>
+      <div class="row"><button class="btn p" id="dep">Deploy</button><button class="btn" id="dprev">Preview</button></div>
+      <div class="steps hide" id="dsteps"><span id="s1">Read file</span><span id="s2">Check name</span><span id="s3">Deploy</span><span id="s4">Done</span></div>
+      <div class="bar hide" id="dbar"><i id="dfill"></i></div>
+      <div class="msg" id="dmsg"></div>
+      <div class="res hide" id="dres">
+        <div class="sub">Live now:</div><a id="dlink" target="_blank" rel="noopener"></a>
+        <div class="row"><button class="btn p" id="dopen">Open</button><button class="btn" id="dcopy">Copy link</button><button class="btn" id="dnew">New deploy</button></div>
+        <p class="sub" style="margin-top:8px">Kalau belum kebuka, tunggu sebentar terus refresh.</p>
+      </div>
+    </div>
+    <div class="card glass"><div class="head"><h2>Deploy history</h2><button class="btn" id="dclr">Hapus</button></div><div id="dhist"></div></div>
+  </section>
+
+  <section class="feats">
+    <div class="feat glass"><div class="ic" style="font-size:13px;font-weight:700">&lt;/&gt;</div><b>Fast</b><span class="sub">Semua file di-fetch sekaligus lewat proxy.</span></div>
+    <div class="feat glass"><div class="ic" style="font-size:13px;font-weight:700">ZIP</div><b>Download ZIP</b><span class="sub">Simpan HTML, CSS, dan JS dalam satu ZIP.</span></div>
+    <div class="feat glass"><div class="ic" style="font-size:16px;font-weight:700">↑</div><b>Deploy Vercel</b><span class="sub">Publish HTML jadi link, no login no token.</span></div>
+  </section>
+
+  <p class="foot">made with ♥ by <b>AlzDevz</b></p>
+</main>
+
+<div id="pv"><div><button class="btn" id="pvx">Tutup ✕</button></div><iframe id="fr" sandbox="allow-scripts"></iframe></div>
+
+<script src="app.js"></script>
+</body>
+</html>
